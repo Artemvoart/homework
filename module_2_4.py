@@ -3,7 +3,6 @@ primes = []
 not_primes = []
 for i in numbers:
     if i < 2:
-        not_primes.append(i)
         continue
     p = True
     for num in range(2, int(i**0.5) + 1):
