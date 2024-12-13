@@ -6,6 +6,10 @@ class Animal:
     def __init__(self, speed):
         self._cords = [0, 0, 0]
         self.speed = speed
+
+    def speak(self):
+        print(self.sound)
+
     def move(self, dx, dy, dz):
         new_x = self._cords [0] + dx * self.speed
         new_y = self._cords [1] + dy * self.speed
@@ -33,8 +37,8 @@ class Bird(Animal):
 class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
     def dive_in(self, dz):
-        nz = self._cords[2] - abs(dz) * 5 * self.speed
-        self._cords[2] = max(nz, 0)
+        nz = self._cords[2] - abs(dz) * 0.5 * self.speed
+        self._cords[2] = nz
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
@@ -43,8 +47,7 @@ class Duckbill(PoisonousAnimal, Bird, AquaticAnimal):
     sound = "Click-click-click"
     def __init__(self, speed):
         super().__init__(speed)
-    def speak(self):
-        print(self.sound)
+
 
 
 db = Duckbill(10)

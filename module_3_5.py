@@ -1,5 +1,5 @@
 def get_multiplied_digits(number):
-
+    number = int(number)
     str_number = str(number)
 
     if len(str_number) > 1:
@@ -11,6 +11,6 @@ def get_multiplied_digits(number):
     else:
         return int(str_number)
 
-result = get_multiplied_digits(40203)
+result = get_multiplied_digits('00123')
 
 print(result)
