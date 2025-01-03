@@ -3,22 +3,13 @@ def calculate_structure_sum(*args):
     for element in args:
         if isinstance(element, str):
             sum += len(element)
-        elif isinstance(element, int):
+        elif isinstance(element, (int, float, bool)):
             sum += element
-        elif isinstance(element, float):
-            sum += element
-        elif isinstance(element, bool):
-            sum += element
-        elif isinstance(element, list):
-            sum += calculate_structure_sum(*element)
-        elif isinstance(element, tuple):
-            sum += calculate_structure_sum(*element)
-        elif isinstance(element, set):
+        elif isinstance(element, (list, tuple, set)):
             sum += calculate_structure_sum(*element)
         elif isinstance(element, dict):
             sum += calculate_structure_sum(*tuple(element.items()))
     return sum
-
 
 data_structure = [
     [1, 2, 3],
@@ -27,6 +18,5 @@ data_structure = [
     "Hello",
     ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
-
 result = calculate_structure_sum(data_structure)
 print(result)
